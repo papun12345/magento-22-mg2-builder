@@ -10,6 +10,7 @@ node {
         }
         stage ('Install') {
         	sh "composer install"
+		sh "pwd"
         }
         stage ('Tests') {
             sh "bin/mg2-builder tests-setup:install -Dproject.name=${BRANCH_NAME} -Ddatabase.admin.username=${DATABASE_USER} -Ddatabase.admin.password=${DATABASE_PASS} -Ddatabase.user=${DATABASE_USER} -Ddatabase.password=${DATABASE_PASS} -DskipDbUserCreation"
